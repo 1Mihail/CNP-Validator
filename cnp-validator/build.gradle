@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-
+apply plugin: 'com.novoda.bintray-release'
 android {
     compileSdkVersion 26
 
@@ -31,4 +31,14 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+}
+
+publish {
+    userOrg = "mihailproductions"
+    groupId = 'com.mihailproductions'
+    artifactId = 'cnp-validator'
+    publishVersion = '0.1.0'
+    desc = 'Library that validates romanian CNPs and extracts the associated information.'
+    uploadName='CNPValidator'
+    website = 'https://github.com/1Mihail/CNP-Validator.git'
 }
