@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/cnpET"
+            style="@style/input_cnp_style"
+            android:text="@string/cnp_sample" />
+        <TextView
+            android:id="@+id/valid_status"
+            style="@style/response_style" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+        <TextView
+            style="@style/title_style"
+            android:text="@string/sex" />
+
+        <TextView
+            android:id="@+id/sex"
+            style="@style/response_style" />
+
+        <TextView
+            style="@style/title_style"
+            android:text="@string/birthdate" />
+
+        <TextView
+            android:id="@+id/birthdate"
+            style="@style/response_style" />
+
+        <TextView
+            style="@style/title_style"
+            android:text="@string/county" />
+
+        <TextView
+            android:id="@+id/county"
+            style="@style/response_style" />
+
+        <TextView
+            style="@style/title_style"
+            android:text="@string/register_number" />
+
+        <TextView
+            android:id="@+id/register_number"
+            style="@style/response_style" />
+
+        <TextView
+            style="@style/title_style"
+            android:text="@string/is_citizen" />
+
+        <TextView
+            android:id="@+id/is_citizen"
+            style="@style/response_style" />
+        </LinearLayout>
+        <Button
+            android:text="@string/check"
+            style="@style/button_style"
+            android:onClick="checkCNP"/>
+    </LinearLayout>
+</ScrollView>

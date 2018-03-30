@@ -1,0 +1,56 @@
+<resources>
+    <string name="app_name">CNPValidator</string>
+    <string name="male">Masculin</string>
+    <string name="female">Feminin</string>
+
+    <string-array name="counties">
+        <item>Alba</item>
+        <item>Arad</item>
+        <item>Argeș</item>
+        <item>Bacău</item>
+        <item>Bihor</item>
+        <item>Bistrița-Năsăud</item>
+        <item>Botoșani</item>
+        <item>Brașov</item>
+        <item>Brăila</item>
+        <item>Buzău</item><!--10-->
+        <item>Caraș-Severin</item>
+        <item>Cluj</item>
+        <item>Constanța</item>
+        <item>Covasna</item>
+        <item>Dâmbovița</item>
+        <item>Dolj</item>
+        <item>Galați</item>
+        <item>Gorj</item>
+        <item>Harghita</item>
+        <item>Hunedoara</item><!--20-->
+        <item>Ialomița</item>
+        <item>Iași</item>
+        <item>Ilfov</item>
+        <item>Maramureș</item>
+        <item>Mehedinți</item>
+        <item>Mureș</item>
+        <item>Neamț</item>
+        <item>Olt</item>
+        <item>Prahova</item>
+        <item>Satu Mare</item><!--30-->
+        <item>Sălaj</item>
+        <item>Sibiu</item>
+        <item>Suceava</item>
+        <item>Teleorman</item>
+        <item>Timiș</item>
+        <item>Tulcea</item>
+        <item>Vaslui</item>
+        <item>Vâlcea</item>
+        <item>Vrancea</item>
+        <item>București</item><!--40-->
+        <item>București S.1</item>
+        <item>București S.2</item>
+        <item>București S.3</item>
+        <item>București S.4</item>
+        <item>București S.5</item>
+        <item>București S.6</item>
+        <item>Călărași</item>
+        <item>Giurgiu</item>
+    </string-array>
+</resources>
