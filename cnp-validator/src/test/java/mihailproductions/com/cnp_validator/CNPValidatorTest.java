@@ -37,9 +37,9 @@ public class CNPValidatorTest {
 
     @Test
     public void checkIfCitizen() {
-        assertFalse(CNPUtils.isCitizen("7121108021180"));
-        assertFalse(CNPUtils.isCitizen("8731010207661"));
-        assertTrue(CNPUtils.isCitizen("3500808133078"));
-        assertTrue(CNPUtils.isCitizen("4500713315711"));
+        assertFalse(CNPUtils.isRomanianCitizen("7121108021180"));
+        assertFalse(CNPUtils.isRomanianCitizen("8731010207661"));
+        assertTrue(CNPUtils.isRomanianCitizen("3500808133078"));
+        assertTrue(CNPUtils.isRomanianCitizen("4500713315711"));
     }
 }

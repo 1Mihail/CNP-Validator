@@ -10,14 +10,14 @@ public class CNP {
     private Date birthdate;
     private String county;
     private String registerNumber;
-    private boolean isCitizen;
+    private boolean isRomanianCitizen;
 
     public CNP(Context context, String cnp) {
         this.isValid = CNPUtils.isValidCNP(cnp);
         if (this.isValid) {
             this.sex = CNPUtils.initializeSex(context, cnp);
             this.birthdate = CNPUtils.initializeDate(cnp);
-            this.isCitizen = CNPUtils.isCitizen(cnp);
+            this.isRomanianCitizen = CNPUtils.isRomanianCitizen(cnp);
             this.registerNumber = cnp.substring(9, 12);
             this.county = CNPUtils.initializeCounty(context, cnp);
         }
@@ -43,7 +43,7 @@ public class CNP {
         return registerNumber;
     }
 
-    public boolean isCitizen() {
-        return isCitizen;
+    public boolean isRomanianCitizen() {
+        return isRomanianCitizen;
     }
 }

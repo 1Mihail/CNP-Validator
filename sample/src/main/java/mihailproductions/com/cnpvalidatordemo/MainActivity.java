@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             birthdate.setText( new SimpleDateFormat("dd/MM/yy").format(cnp.getBirthdate()));
             county.setText(cnp.getCounty());
             registerNumber.setText(cnp.getRegisterNumber());
-            isCitizen.setText(getString(R.string.citizen_response,cnp.isCitizen()));
+            isCitizen.setText(getString(R.string.citizen_response,cnp.isRomanianCitizen()));
         }else{
             container.setVisibility(View.GONE);
             validStatus.setText(invalid);

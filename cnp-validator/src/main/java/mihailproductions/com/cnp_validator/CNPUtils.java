@@ -5,6 +5,7 @@ import android.content.Context;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 final class CNPUtils {
     public static boolean isValidCNP(String cnp) {
@@ -32,18 +33,22 @@ final class CNPUtils {
     }
 
     public static String initializeSex(Context context, String cnp) {
-        if ((cnp.charAt(0) - '0') % 2 == 1) {
+        int sexPrameter = cnp.charAt(0) - '0';
+        if (sexPrameter == 9) {
+            return context.getResources().getString(R.string.unknown);
+        } else if (sexPrameter % 2 == 1) {
             return context.getResources().getString(R.string.male);
+        } else {
+            return context.getResources().getString(R.string.female);
         }
-        return context.getResources().getString(R.string.female);
     }
 
     public static Date initializeDate(String cnp) {
         int yearIndex = cnp.charAt(0) - '0';
         String ddmm = cnp.substring(5, 7) + "/" + cnp.substring(3, 5) + "/";
         String yy = cnp.substring(1, 3);
-        SimpleDateFormat normalDF = new SimpleDateFormat("dd/MM/yyyy");
-        SimpleDateFormat foreignDF = new SimpleDateFormat("dd/MM/yy");
+        SimpleDateFormat normalDF = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+        SimpleDateFormat foreignDF = new SimpleDateFormat("dd/MM/yy", Locale.getDefault());
         try {
             switch (yearIndex) {
                 case 1:
@@ -57,6 +62,7 @@ final class CNPUtils {
                     return normalDF.parse(ddmm + "20" + yy);
                 case 7:
                 case 8:
+                case 9:
                     return foreignDF.parse(ddmm + yy);
             }
         } catch (ParseException e) {
@@ -65,8 +71,9 @@ final class CNPUtils {
         return null;
     }
 
-    public static boolean isCitizen(String cnp) {
-        return !(cnp.charAt(0) == '7' || cnp.charAt(0) == '8');
+    public static boolean isRomanianCitizen(String cnp) {
+        char citizenshipParameter = cnp.charAt(0);
+        return !(citizenshipParameter == '7' || citizenshipParameter == '8' || citizenshipParameter == '9');
     }
 
     public static String initializeCounty(Context context, String cnp) {
