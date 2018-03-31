@@ -37,7 +37,7 @@ publish {
     userOrg = "mihailproductions"
     groupId = 'com.mihailproductions'
     artifactId = 'cnp-validator'
-    publishVersion = '0.1.0'
+    publishVersion = '0.1.1'
     desc = 'Library that validates romanian CNPs and extracts the associated information.'
     uploadName='CNPValidator'
     website = 'https://github.com/1Mihail/CNP-Validator.git'
