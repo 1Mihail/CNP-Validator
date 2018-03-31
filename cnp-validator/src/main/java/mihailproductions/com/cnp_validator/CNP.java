@@ -16,12 +16,12 @@ public class CNP {
     public CNP(Context context, String cnp) {
         this.isValid = CNPUtils.isValidCNP(cnp);
         if (this.isValid) {
-            this.cnp = cnp;
-            this.sex = CNPUtils.initializeSex(context, cnp);
-            this.birthdate = CNPUtils.initializeDate(cnp);
-            this.isRomanianCitizen = CNPUtils.isRomanianCitizen(cnp);
-            this.registerNumber = CNPUtils.initializeRegisterNumber(cnp);
-            this.county = CNPUtils.initializeCounty(context, cnp);
+            this.cnp = CNPUtils.initializeCNP(cnp);
+            this.sex = CNPUtils.initializeSex(context, this.cnp);
+            this.birthdate = CNPUtils.initializeDate(this.cnp);
+            this.isRomanianCitizen = CNPUtils.isRomanianCitizen(this.cnp);
+            this.registerNumber = CNPUtils.initializeRegisterNumber(this.cnp);
+            this.county = CNPUtils.initializeCounty(context, this.cnp);
         }
     }
 

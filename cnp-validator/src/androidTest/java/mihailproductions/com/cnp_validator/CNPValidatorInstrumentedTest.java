@@ -26,7 +26,7 @@ public class CNPValidatorInstrumentedTest {
     public void CheckForCorrectSex() {
         assertEquals(CNPUtils.initializeSex(context, "3500819163377"), context.getResources().getString(R.string.male));
         assertEquals(CNPUtils.initializeSex(context, "4501122373430"), context.getResources().getString(R.string.female));
-        assertEquals(CNPUtils.initializeSex(context,"9501120293215"),context.getResources().getString(R.string.unknown));
+        assertEquals(CNPUtils.initializeSex(context, "9501120293215"), context.getResources().getString(R.string.unknown));
     }
 
     @Test
@@ -35,7 +35,7 @@ public class CNPValidatorInstrumentedTest {
         assertEquals(CNPUtils.initializeCounty(context, "4500425028294"), counties[1]);
         assertEquals(CNPUtils.initializeCounty(context, "4500610405290"), counties[39]);
         assertEquals(CNPUtils.initializeCounty(context, "3501219522496"), counties[47]);
-        assertEquals(CNPUtils.initializeCounty(context,"9501120293215"),counties[28]);
+        assertEquals(CNPUtils.initializeCounty(context, "9501120293215"), counties[28]);
     }
 
     @Test
@@ -51,14 +51,14 @@ public class CNPValidatorInstrumentedTest {
     }
 
     @Test
-    public void checkToString(){
+    public void checkToString() {
         List<CNP> cnpList = new ArrayList<>();
         cnpList.add(new CNP(context, "4500425028294"));
         cnpList.add(new CNP(context, "3501219522496"));
         cnpList.add(new CNP(context, "4501122373430"));
 
-        assertEquals(cnpList.get(0).toString(),"4500425028294");
-        assertEquals(cnpList.get(1).toString(),"3501219522496");
-        assertEquals(cnpList.get(2).toString(),"4501122373430");
+        assertEquals(cnpList.get(0).toString(), "4500425028294");
+        assertEquals(cnpList.get(1).toString(), "3501219522496");
+        assertEquals(cnpList.get(2).toString(), "4501122373430");
     }
 }

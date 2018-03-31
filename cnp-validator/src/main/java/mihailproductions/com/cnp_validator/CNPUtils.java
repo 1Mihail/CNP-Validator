@@ -8,14 +8,16 @@ import java.util.Date;
 import java.util.Locale;
 
 final class CNPUtils {
-    private CNPUtils() { }
+    private CNPUtils() {
+    }
 
     public static boolean isValidCNP(String cnp) {
-        final int cnpLength = 13;
         if (cnp != null) {
-            cnp = cnp.trim();
-        } else return false;
-        return cnp.length() == cnpLength && cnp.matches("\\d+") && controlValidation(cnp) && structureValidation(cnp);
+            cnp = initializeCNP(cnp);
+        } else {
+            return false;
+        }
+        return cnp.length() == 13 && cnp.matches("\\d+") && controlValidation(cnp) && structureValidation(cnp);
     }
 
     private static boolean structureValidation(String cnp) {
@@ -59,6 +61,10 @@ final class CNPUtils {
             controlDigit = controlSum % 11;
         }
         return controlDigit + '0' == cnp.charAt(cnp.length() - 1);
+    }
+
+    public static String initializeCNP(String cnp) {
+        return cnp.trim();
     }
 
     public static String initializeSex(Context context, String cnp) {
