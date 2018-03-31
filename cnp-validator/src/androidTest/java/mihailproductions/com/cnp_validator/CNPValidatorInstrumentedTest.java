@@ -49,4 +49,16 @@ public class CNPValidatorInstrumentedTest {
         assertEquals("337", cnpList.get(1).getRegisterNumber());
         assertEquals("321", cnpList.get(2).getRegisterNumber());
     }
+
+    @Test
+    public void checkToString(){
+        List<CNP> cnpList = new ArrayList<>();
+        cnpList.add(new CNP(context, "4500425028294"));
+        cnpList.add(new CNP(context, "3501219522496"));
+        cnpList.add(new CNP(context, "4501122373430"));
+
+        assertEquals(cnpList.get(0).toString(),"4500425028294");
+        assertEquals(cnpList.get(1).toString(),"3501219522496");
+        assertEquals(cnpList.get(2).toString(),"4501122373430");
+    }
 }

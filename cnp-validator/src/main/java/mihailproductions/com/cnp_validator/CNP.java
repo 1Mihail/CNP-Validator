@@ -5,6 +5,7 @@ import android.content.Context;
 import java.util.Date;
 
 public class CNP {
+    private String cnp;
     private boolean isValid;
     private String sex;
     private Date birthdate;
@@ -15,6 +16,7 @@ public class CNP {
     public CNP(Context context, String cnp) {
         this.isValid = CNPUtils.isValidCNP(cnp);
         if (this.isValid) {
+            this.cnp = cnp;
             this.sex = CNPUtils.initializeSex(context, cnp);
             this.birthdate = CNPUtils.initializeDate(cnp);
             this.isRomanianCitizen = CNPUtils.isRomanianCitizen(cnp);
@@ -45,5 +47,10 @@ public class CNP {
 
     public boolean isRomanianCitizen() {
         return isRomanianCitizen;
+    }
+
+    @Override
+    public String toString() {
+        return this.cnp;
     }
 }
