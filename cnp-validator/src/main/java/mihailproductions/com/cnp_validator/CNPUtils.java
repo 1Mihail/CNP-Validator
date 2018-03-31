@@ -72,25 +72,24 @@ final class CNPUtils {
 
     public static Date initializeDate(String cnp) {
         int yearIndex = cnp.charAt(0) - '0';
-        String ddmm = cnp.substring(5, 7) + "/" + cnp.substring(3, 5) + "/";
-        String yy = cnp.substring(1, 3);
-        SimpleDateFormat normalDF = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
-        SimpleDateFormat foreignDF = new SimpleDateFormat("dd/MM/yy", Locale.getDefault());
+        String yymmdd = cnp.substring(1, 7);
+        SimpleDateFormat normalDF = new SimpleDateFormat("yyyyMMdd", Locale.getDefault());
+        SimpleDateFormat unknownPrefixDF = new SimpleDateFormat("yyMMdd", Locale.getDefault());
         try {
             switch (yearIndex) {
                 case 1:
                 case 2:
-                    return normalDF.parse(ddmm + "19" + yy);
+                    return normalDF.parse("19" + yymmdd);
                 case 3:
                 case 4:
-                    return normalDF.parse(ddmm + "18" + yy);
+                    return normalDF.parse("18" + yymmdd);
                 case 5:
                 case 6:
-                    return normalDF.parse(ddmm + "20" + yy);
+                    return normalDF.parse("20" + yymmdd);
                 case 7:
                 case 8:
                 case 9:
-                    return foreignDF.parse(ddmm + yy);
+                    return unknownPrefixDF.parse(yymmdd);
             }
         } catch (ParseException e) {
             e.printStackTrace();
