@@ -8,6 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
+import java.util.Locale;
 
 import butterknife.BindString;
 import butterknife.BindView;
@@ -48,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
             container.setVisibility(View.VISIBLE);
             validStatus.setText(valid);
             sex.setText(cnp.getSex());
-            birthdate.setText( new SimpleDateFormat("dd/MM/yy").format(cnp.getBirthdate()));
+            birthdate.setText( new SimpleDateFormat("dd/MM/yy", Locale.getDefault()).format(cnp.getBirthdate()));
             county.setText(cnp.getCounty());
             registerNumber.setText(cnp.getRegisterNumber());
             isCitizen.setText(getString(R.string.citizen_response,cnp.isRomanianCitizen()));
