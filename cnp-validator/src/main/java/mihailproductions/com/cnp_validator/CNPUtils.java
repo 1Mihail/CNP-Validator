@@ -13,7 +13,34 @@ final class CNPUtils {
         if (cnp != null) {
             cnp = cnp.trim();
         } else return false;
-        return cnp.length() == cnpLength && cnp.matches("\\d+") && controlValidation(cnp);
+        return cnp.length() == cnpLength && cnp.matches("\\d+") && controlValidation(cnp) && structureValidation(cnp);
+    }
+
+    private static boolean structureValidation(String cnp) {
+        String yymmdd = cnp.substring(1, 7);
+        String county = cnp.substring(7, 9);
+        String registerNumber = cnp.substring(9, 12);
+        return cnp.charAt(0) != '0' && birtdateValidation(yymmdd) && countyValidation(county) && registerNumberValidation(registerNumber);
+    }
+
+    private static boolean birtdateValidation(String yymmdd) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyMMdd", Locale.getDefault());
+        sdf.setLenient(false);
+        try {
+            sdf.parse(yymmdd);
+            return true;
+        } catch (ParseException e) {
+            return false;
+        }
+    }
+
+    private static boolean countyValidation(String county) {
+        int countyIndex = Integer.parseInt(county);
+        return (countyIndex >= 1 && countyIndex <= 46) || countyIndex == 51 || countyIndex == 52;
+    }
+
+    private static boolean registerNumberValidation(String registerNumber) {
+        return !registerNumber.equals("000");
     }
 
     private static boolean controlValidation(String cnp) {
@@ -74,6 +101,10 @@ final class CNPUtils {
     public static boolean isRomanianCitizen(String cnp) {
         char citizenshipParameter = cnp.charAt(0);
         return !(citizenshipParameter == '7' || citizenshipParameter == '8' || citizenshipParameter == '9');
+    }
+
+    public static String initializeRegisterNumber(String cnp) {
+        return cnp.substring(9, 12);
     }
 
     public static String initializeCounty(Context context, String cnp) {

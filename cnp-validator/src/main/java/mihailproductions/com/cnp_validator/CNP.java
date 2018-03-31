@@ -18,7 +18,7 @@ public class CNP {
             this.sex = CNPUtils.initializeSex(context, cnp);
             this.birthdate = CNPUtils.initializeDate(cnp);
             this.isRomanianCitizen = CNPUtils.isRomanianCitizen(cnp);
-            this.registerNumber = cnp.substring(9, 12);
+            this.registerNumber = CNPUtils.initializeRegisterNumber(cnp);
             this.county = CNPUtils.initializeCounty(context, cnp);
         }
     }

@@ -25,6 +25,9 @@ public class CNPValidatorTest {
         assertFalse(CNPUtils.isValidCNP("35009294429"));
         assertFalse(CNPUtils.isValidCNP("3500929a42955"));
         assertFalse(CNPUtils.isValidCNP(null));
+        assertFalse(CNPUtils.isValidCNP("0000000000000"));
+        assertFalse(CNPUtils.isValidCNP("7777777777771"));
+        assertFalse(CNPUtils.isValidCNP("9999999999996"));
     }
 
     @Test
