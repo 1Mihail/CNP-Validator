@@ -8,6 +8,8 @@ import java.util.Date;
 import java.util.Locale;
 
 final class CNPUtils {
+    private CNPUtils() { }
+
     public static boolean isValidCNP(String cnp) {
         final int cnpLength = 13;
         if (cnp != null) {
@@ -20,10 +22,10 @@ final class CNPUtils {
         String yymmdd = cnp.substring(1, 7);
         String county = cnp.substring(7, 9);
         String registerNumber = cnp.substring(9, 12);
-        return cnp.charAt(0) != '0' && birtdateValidation(yymmdd) && countyValidation(county) && registerNumberValidation(registerNumber);
+        return cnp.charAt(0) != '0' && birthdateValidation(yymmdd) && countyValidation(county) && registerNumberValidation(registerNumber);
     }
 
-    private static boolean birtdateValidation(String yymmdd) {
+    private static boolean birthdateValidation(String yymmdd) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyMMdd", Locale.getDefault());
         sdf.setLenient(false);
         try {
