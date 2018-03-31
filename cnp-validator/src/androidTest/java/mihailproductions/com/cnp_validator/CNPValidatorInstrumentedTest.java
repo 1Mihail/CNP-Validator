@@ -8,6 +8,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 @RunWith(AndroidJUnit4.class)
@@ -23,6 +26,7 @@ public class CNPValidatorInstrumentedTest {
     public void CheckForCorrectSex() {
         assertEquals(CNPUtils.initializeSex(context, "3500819163377"), context.getResources().getString(R.string.male));
         assertEquals(CNPUtils.initializeSex(context, "4501122373430"), context.getResources().getString(R.string.female));
+        assertEquals(CNPUtils.initializeSex(context,"9501120293215"),context.getResources().getString(R.string.unknown));
     }
 
     @Test
@@ -31,14 +35,18 @@ public class CNPValidatorInstrumentedTest {
         assertEquals(CNPUtils.initializeCounty(context, "4500425028294"), counties[1]);
         assertEquals(CNPUtils.initializeCounty(context, "4500610405290"), counties[39]);
         assertEquals(CNPUtils.initializeCounty(context, "3501219522496"), counties[47]);
+        assertEquals(CNPUtils.initializeCounty(context,"9501120293215"),counties[28]);
     }
 
     @Test
     public void checkRegisterNumber() {
-        CNP cnp = new CNP(context, "7121108021180");
-        CNP cnp2 = new CNP(context, "3500819163377");
+        List<CNP> cnpList = new ArrayList<>();
+        cnpList.add(new CNP(context, "7121108021180"));
+        cnpList.add(new CNP(context, "3500819163377"));
+        cnpList.add(new CNP(context, "9501120293215"));
 
-        assertEquals("118", cnp.getRegisterNumber());
-        assertEquals("337", cnp2.getRegisterNumber());
+        assertEquals("118", cnpList.get(0).getRegisterNumber());
+        assertEquals("337", cnpList.get(1).getRegisterNumber());
+        assertEquals("321", cnpList.get(2).getRegisterNumber());
     }
 }

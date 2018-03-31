@@ -15,6 +15,7 @@ public class CNPValidatorTest {
         assertTrue(CNPUtils.isValidCNP("3500929448438"));
         assertTrue(CNPUtils.isValidCNP("4500630373278"));
         assertTrue(CNPUtils.isValidCNP("4500630373181"));
+        assertTrue(CNPUtils.isValidCNP("9501120299005"));
     }
 
     @Test
@@ -33,12 +34,14 @@ public class CNPValidatorTest {
         assertEquals("30/07/1850", sdf.format(CNPUtils.initializeDate("4500730334151")));
         assertEquals("27/01/1850", sdf.format(CNPUtils.initializeDate("4500127346605")));
         assertEquals("08/11/12", sdf2.format(CNPUtils.initializeDate("7121108021180")));
+        assertEquals("20/11/50", sdf2.format(CNPUtils.initializeDate("9501120299371")));
     }
 
     @Test
     public void checkIfCitizen() {
         assertFalse(CNPUtils.isRomanianCitizen("7121108021180"));
         assertFalse(CNPUtils.isRomanianCitizen("8731010207661"));
+        assertFalse(CNPUtils.isRomanianCitizen("9501120299371"));
         assertTrue(CNPUtils.isRomanianCitizen("3500808133078"));
         assertTrue(CNPUtils.isRomanianCitizen("4500713315711"));
     }
